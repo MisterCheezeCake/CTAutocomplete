@@ -209,6 +209,9 @@ declare global {
    * @param asCommand  Whether to treat it as if the user ran /ct unload. Defaults to true.
    */
   function unload(asCommand?: boolean): void;
+  
+  function createCustomTrigger(name: string): void;
+
   // End 3.0 Additions
   interface Number {
     easeOut(to: number, speed: number, jump: number): number;
