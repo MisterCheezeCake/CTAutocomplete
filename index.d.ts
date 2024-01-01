@@ -1,5 +1,6 @@
 // Type definitions for Chattriggers
 // Definitions by: Maxssho13, also a lot of credit to Matt for inspiration and reference
+// Updated to CT 3.0 By MisterCheezeCake
 
 /// <reference no-default-lib="true" />
 /// <reference lib="es2015" />
@@ -197,7 +198,18 @@ declare global {
   function print(toPrint: any, end?: string, color?: JavaColor): void;
 
   function setTimeout(func: () => void, delay: number): void;
-
+  // Begin 3.0 Additions
+  /**
+   * Reload ChatTriggers
+   * @param asCommand Whether to treat it as if the user ran /ct load. Defaults to true.
+   */
+  function load(asCommand?: boolean): void;
+  /**
+   * Unload ChatTriggers
+   * @param asCommand  Whether to treat it as if the user ran /ct unload. Defaults to true.
+   */
+  function unload(asCommand?: boolean): void;
+  // End 3.0 Additions
   interface Number {
     easeOut(to: number, speed: number, jump: number): number;
 
@@ -10687,15 +10699,6 @@ declare class Reference {
   readonly MODVERSION: string;
 
   isLoaded: boolean;
-
-  // deprecated
-  reloadCT(): void;
-
-  unloadCT(asCommand?: boolean): void;
-  static unloadCT(asCommand?: boolean): void;
-
-  loadCT(): void;
-  static loadCT(): void;
 
   conditionalThread(block: () => void): void;
   static conditionalThread(block: () => void): void;
